@@ -26,8 +26,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/week18Populater";
+
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/week18Populater");
+mongoose.connect(MONGODB_URI);
 
 // Routes
 
